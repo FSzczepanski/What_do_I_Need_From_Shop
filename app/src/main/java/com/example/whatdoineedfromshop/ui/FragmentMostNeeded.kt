@@ -1,5 +1,6 @@
 package com.example.whatdoineedfromshop.ui
 
+import android.app.Application
 import android.graphics.LinearGradient
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -42,12 +43,12 @@ class FragmentMostNeeded : Fragment() {
 
         val database = activity?.let { ShoppingDatabase(it) }
         val repository = database?.let { ShoppingRepository(it) }
-        val factory = repository?.let { FragmentMostNeededViewModel(it) }
+        val factory = repository?.let { FragmentMostNeededViewModelFactory(it, Application()) }
 
          val viewModel: FragmentMostNeededViewModel by lazy {
             return@lazy when {
                 activity != null -> {
-                    ViewModelProviders.of(activity as FragmentActivity).get(FragmentMostNeededViewModel::class.java)
+                    ViewModelProvider(activity as FragmentActivity,factory as ViewModelProvider.Factory).get(FragmentMostNeededViewModel::class.java)
                 }
                 else -> {
                     ViewModelProviders.of(this).get(FragmentMostNeededViewModel::class.java)
@@ -55,15 +56,15 @@ class FragmentMostNeeded : Fragment() {
             }
         }
 
-        //val adapter = FragmentMostNeededItemAdapter(listOf(),viewModel)
+        val adapter = FragmentMostNeededItemAdapter(listOf(),viewModel)
 
-       // rvShoppingItems.layoutManager = LinearLayoutManager(context)
-       // rvShoppingItems.adapter= adapter
+        rvShoppingItems.layoutManager = LinearLayoutManager(context)
+        rvShoppingItems.adapter= adapter
 
-//        viewModel.getAllShoppingItems().observe(this,Observer{
-          //  adapter.items = it
-          //  adapter.notifyDataSetChanged()
-    //    })
+        viewModel.getAllShoppingItems().observe(this,Observer{
+            adapter.items = it
+            adapter.notifyDataSetChanged()
+        })
 
         fab.setOnClickListener{
             activity?.let { it1 ->
