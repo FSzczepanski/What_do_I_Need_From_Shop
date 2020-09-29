@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.whatdoineedfromshop.R
 import com.example.whatdoineedfromshop.data.db.entities.ShoppingItem
 import kotlinx.android.synthetic.main.shopping_item.view.*
+import java.util.*
 
-class FragmentMostNeededItemAdapter(
-    var items: List<ShoppingItem>,
-    private val viewModel: FragmentMostNeededViewModel
-) : RecyclerView.Adapter<FragmentMostNeededItemAdapter.ShoppingViewHolder>() {
+class FragmentNeededInFutureItemAdapter(var items: LinkedList<ShoppingItem>,
+                                        private val viewModel: FragmentNeededInFutureViewModel
+) : RecyclerView.Adapter<FragmentNeededInFutureItemAdapter.ShoppingViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingViewHolder {
         val view =

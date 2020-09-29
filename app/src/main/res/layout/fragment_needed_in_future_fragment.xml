@@ -5,14 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="@color/colorback"
+    android:background="@color/colorback2"
     tools:context=".ui.FragmentNeededInFuture">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvShoppingItems"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
