@@ -63,7 +63,7 @@ class FragmentNeededInFuture : Fragment() {
             val list2 = LinkedList<ShoppingItem>()
 
             for(element in list){
-                if (element.name[0].toString()=="F"){
+                if (element.itemid[0].toString()=="F"){
                     list2.add(element)
                 }
 

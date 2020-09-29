@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.whatdoineedfromshop.data.db.entities.ShoppingItem
 
 @Database(entities = [ShoppingItem::class],
-    version = 1)
+    version = 2)
 abstract class ShoppingDatabase: RoomDatabase() {
     abstract fun getShoppingDao(): ShoppingDao
 
@@ -15,6 +15,7 @@ abstract class ShoppingDatabase: RoomDatabase() {
         @Volatile
         private var instance: ShoppingDatabase? = null
         private val LOCK = Any()
+
 
         operator fun invoke(context: Context) = instance
             ?: synchronized(LOCK){
@@ -26,7 +27,7 @@ abstract class ShoppingDatabase: RoomDatabase() {
 
         private fun createDatabase(context: Context) =
             Room.databaseBuilder(context.applicationContext,
-                ShoppingDatabase::class.java,"ShoppingDB.db").build()
+                ShoppingDatabase::class.java,"ShoppingDB.db").fallbackToDestructiveMigration().build()
     }
 
 }

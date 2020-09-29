@@ -14,7 +14,7 @@ class AddShoppingItemDialogNeededInFuture(context: Context, var addDialogListene
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dialog_add_shopping_item)
         tvAdd.setOnClickListener{
-            val name = "F: "+etName.text.toString()
+            val name = etName.text.toString()
             val amount = etAmount.text.toString()
 
             if (name.isEmpty() || amount.isEmpty()){
@@ -22,7 +22,7 @@ class AddShoppingItemDialogNeededInFuture(context: Context, var addDialogListene
                 return@setOnClickListener
             }
 
-            val item = ShoppingItem(name,amount.toInt())
+            val item = ShoppingItem("F",name,amount.toInt())
             addDialogListener.onAddButtonClicked(item)
             dismiss()
         }

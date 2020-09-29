@@ -22,7 +22,7 @@ class AddShoppingItemDialog(context: Context, var addDialogListener: AddDialogLi
                 return@setOnClickListener
             }
 
-            val item = ShoppingItem(name,amount.toInt())
+            val item = ShoppingItem("N",name,amount.toInt())
             addDialogListener.onAddButtonClicked(item)
             dismiss()
         }

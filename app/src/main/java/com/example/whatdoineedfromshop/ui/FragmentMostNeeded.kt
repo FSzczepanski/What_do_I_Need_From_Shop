@@ -67,7 +67,7 @@ class FragmentMostNeeded : Fragment() {
             var list: List<ShoppingItem> = it
             val list2 = LinkedList<ShoppingItem>()
             for (element in list) {
-                if (element.name[0].toString() != "F") {
+                if (element.itemid[0].toString() == "N") {
                     list2.add(element)
                 }
             }
