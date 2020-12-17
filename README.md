@@ -1,5 +1,8 @@
 # What_do_I_Need_From_Shop
 
+* made to practice **MVVM approach** with Room
+* Written in **Kotlin**
+
 ## Screenshots
 
 ![Screenshot_1601366379](https://user-images.githubusercontent.com/61236736/94530099-e77cb300-023a-11eb-8d15-ca13d8061800.png)
